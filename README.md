@@ -27,22 +27,22 @@ Once login in the WEB app, the login/logout (API or WEB) REDIS datas will be dis
 
 ## API routes (can be tested with postman for example)
 
-POST /api/auth/register
-PARAMS name, email, password, password_confirmation
+POST /api/auth/register <br/>
+PARAMS name, email, password, password_confirmation<br/>
 
-POST /api/auth/login
-PARAMS email, password
+POST /api/auth/login<br/>
+PARAMS email, password<br/>
 
-POST /api/auth/logout
-PARAMS token
+POST /api/auth/logout<br/>
+PARAMS token<br/>
 
 Testing accounts (but you can create your own) :
 
-email : testapi@gmail.com
-password : tttttttt
+email : testapi@gmail.com <br/>
+password : tttttttt <br/>
 
-email : testweb@gmail.com
-password : tttttttt
+email : testweb@gmail.com <br/>
+password : tttttttt <br/>
 
 ## Sequence Diagram
 
