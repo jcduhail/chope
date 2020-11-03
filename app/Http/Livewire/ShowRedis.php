@@ -13,9 +13,14 @@ class ShowRedis extends Component
         
         $user = auth()->user();
         $redis = Redis::connection();
-        $arrLogin = [];
+        $arrLogs = [];
         $arrLogs = json_decode(Redis::get('logs_'.$user->id), true);
-        krsort($arrLogs);
+        if($arrLogs && count($arrLogs)>0){
+            krsort($arrLogs);
+        }else{
+            $arrLogs=[];
+        }
+        
         return view('livewire.show-redis', ['logs' => $arrLogs]);
     }
 }
