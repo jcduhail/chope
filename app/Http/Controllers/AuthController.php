@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Validator;
 use App\Models\User;
-
+use Illuminate\Support\Facades\Redis;
 
 class AuthController extends Controller {
     
@@ -35,9 +35,18 @@ class AuthController extends Controller {
         }
         
         if (! $token = auth()->attempt($validator->validated())) {
+
             return response()->json(['error' => 'Unauthorized'], 401);
         }
         
+        $user = auth()->user();
+        $redis = Redis::connection();
+        $arrLogs = [];
+        $arrLogs = json_decode(Redis::get('logs_'.$user->id), true);
+        
+        $arrLogs[date('Y-m-d H:i:s')]='API-LOGIN';
+        Redis::set('logs_'.$user->id, json_encode($arrLogs));
+                
         return $this->createNewToken($token);
     }
     
@@ -62,6 +71,9 @@ class AuthController extends Controller {
             ['password' => bcrypt($request->password)]
             ));
         
+        $redis = Redis::connection();
+        Redis::set('api_register_'.$user->id, date('Y-m-d H:i:s'));
+        
         return response()->json([
             'message' => 'User successfully registered',
             'user' => $user
@@ -75,10 +87,20 @@ class AuthController extends Controller {
      * @return \Illuminate\Http\JsonResponse
      */
     public function logout() {
+        
+        $user = auth()->user();
+        $redis = Redis::connection();
+        $arrLogs = [];
+        $arrLogs = json_decode(Redis::get('logs_'.$user->id), true);
+
+        $arrLogs[date('Y-m-d H:i:s')]= 'API-LOGOUT';
+        Redis::set('logs_'.$user->id, json_encode($arrLogs));
+        
         auth()->logout();
         
         return response()->json(['message' => 'User successfully signed out']);
     }
+    
     
     /**
      * Refresh a token.
