@@ -9,7 +9,7 @@ PHP >=7.3
 
 - Edit the .env file to set the correct location of the sqlite file :
 
-DB_DATABASE=[ABSOLUTE_PASS_TO_MINISAPIRE]/chope/database/db.sqlite
+DB_DATABASE=[ABSOLUTE_PASS_TO_CHOPE_REPO]/chope/database/db.sqlite
 
 - Either run "php artisan serve" then go to http://127.0.0.1:8000
 Or set your appache document root to chope/public folder
