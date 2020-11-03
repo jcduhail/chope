@@ -1,6 +1,8 @@
 ## Requierements
 
 PHP >=7.3
+composer >= 2.0.4
+npm >=6.4.1
 
 ## Installation
 
@@ -16,9 +18,9 @@ Or set your appache document root to chope/public folder
 
 ## How it works
 
-- Jetstream to have a build-in auth with registration and login
-- JWT Token for API authentication
-- A free Redis server
+- Laravel 8 / Jetstream to have a build-in auth with registration and login
+- Laravel JWT Token for API authentication
+- A free online Redis server
 - SQLite database for quick dev
 
 Whether you register with API or WEB, you can use same credentials for both. But for the API logout, need to provide the token previously given while login with API.
