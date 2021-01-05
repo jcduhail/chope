@@ -122,16 +122,16 @@ return [
         'client' => env('REDIS_CLIENT', 'predis'),
         
         'default' => [
-            'host' => env('REDIS_HOST', 'redis-19139.c244.us-east-1-2.ec2.cloud.redislabs.com'),
-            'password' => env('REDIS_PASSWORD', 'bs939HLh3ch9PHojyoi6vkgY06nzotw6'),
-            'port' => env('REDIS_PORT', 19139),
+            'host' => env('REDIS_HOST', 'redis-18681.c82.us-east-1-2.ec2.cloud.redislabs.com'),
+            'password' => env('REDIS_PASSWORD', 'MQ9VQHfOnDMnh9tReRkOjAj4yMUCx875'),
+            'port' => env('REDIS_PORT', 18681),
             'database' => env('REDIS_DB', 0),
         ],
         
         'cache' => [
-            'host' => env('REDIS_HOST', 'redis-19139.c244.us-east-1-2.ec2.cloud.redislabs.com'),
-            'password' => env('REDIS_PASSWORD', 'bs939HLh3ch9PHojyoi6vkgY06nzotw6'),
-            'port' => env('REDIS_PORT', 19139),
+            'host' => env('REDIS_HOST', 'redis-18681.c82.us-east-1-2.ec2.cloud.redislabs.com'),
+            'password' => env('REDIS_PASSWORD', 'MQ9VQHfOnDMnh9tReRkOjAj4yMUCx875'),
+            'port' => env('REDIS_PORT', 18681),
             'database' => env('REDIS_CACHE_DB', 1),
         ],
         
